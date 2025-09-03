@@ -15,7 +15,28 @@ function addstudent(id, name, age, grade) {
     students.push({ id, name, age, grade });
     console.log(`student Added: ${name}, Age: ${age}, Grade: ${grade}`);
 }
-
-
 addstudent(121, "Manoj", 19, "C");
 addstudent(135, "Raj", 22, "B");
+
+// to delete a student
+function deletestudent(id) {
+    if (!id) {
+        console.log("Error: Student ID is required to delete a student");
+        return;
+    }
+
+    // to find index of the student with the given id
+    const index = students.findIndex(student => student.id === id);
+
+    if (index === -1) {
+        console.log(`Error:no student found with ID ${id}`);
+        return;
+    }
+
+    const removedstudent = students.splice(index, 1)[0];
+    console.log(`student deleted: ${removedStudent.name}, ID: ${removedStudent.id}`);
+}
+
+
+deletestudent(121); 
+deletestudent(999); // shows error
