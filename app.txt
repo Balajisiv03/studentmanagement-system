@@ -1,3 +1,21 @@
 // Student Management System - initial setup
 
-// Features will be implemented
+// to add a student
+let students = [];
+
+function addstudent(id, name, age, grade) {
+    if (!id || !name || !age || !grade) {
+        console.log("Error: all fields are required");
+        return;
+    }
+    if (students.some(student => student.id === id)) {
+        console.log(`Error: student with ID ${id} already exists.`);
+        return;
+    }
+    students.push({ id, name, age, grade });
+    console.log(`student Added: ${name}, Age: ${age}, Grade: ${grade}`);
+}
+
+
+addstudent(121, "Manoj", 19, "C");
+addstudent(135, "Raj", 22, "B");
